@@ -1,24 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dpb-Wq-HHP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login View Controller-->
+        <scene sceneID="Ef1-Rn-MjD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="ebD-pg-OZg" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eyT-2m-ddg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-tm-ir1">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="p2k-nk-SQv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-Xh-Yib">
+                                <rect key="frame" x="57" y="168" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="33z-i2-Wbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-k0-at7">
+                                <rect key="frame" x="57" y="212" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="hCu-u8-lWZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c12-tI-Xa4">
+                                <rect key="frame" x="57" y="256" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="hCl-lY-J6u"/>
+                                </constraints>
+                                <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="ebD-pg-OZg" eventType="touchUpInside" id="k68-Yq-DIH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBL-Pn-EZh">
+                                <rect key="frame" x="57" y="306" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1ds-kH-IqM"/>
+                                </constraints>
+                                <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAccountButton:" destination="ebD-pg-OZg" eventType="touchUpInside" id="Bu6-JS-K56"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tx0-mv-LLV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XPo-tm-ir1" firstAttribute="top" secondItem="tx0-mv-LLV" secondAttribute="top" constant="80" id="2em-n6-qRA"/>
+                            <constraint firstItem="WBL-Pn-EZh" firstAttribute="top" secondItem="c12-tI-Xa4" secondAttribute="bottom" constant="10" id="EYL-i5-zBM"/>
+                            <constraint firstItem="b8E-Xh-Yib" firstAttribute="top" secondItem="XPo-tm-ir1" secondAttribute="bottom" constant="10" id="KYK-rd-qsE"/>
+                            <constraint firstItem="pj5-k0-at7" firstAttribute="top" secondItem="b8E-Xh-Yib" secondAttribute="bottom" constant="10" id="Nsc-xI-ScG"/>
+                            <constraint firstItem="pj5-k0-at7" firstAttribute="centerX" secondItem="eyT-2m-ddg" secondAttribute="centerX" id="g6V-44-nUq"/>
+                            <constraint firstItem="c12-tI-Xa4" firstAttribute="centerX" secondItem="eyT-2m-ddg" secondAttribute="centerX" id="hi7-Xa-mnY"/>
+                            <constraint firstItem="WBL-Pn-EZh" firstAttribute="centerX" secondItem="eyT-2m-ddg" secondAttribute="centerX" id="odg-W5-Woj"/>
+                            <constraint firstItem="b8E-Xh-Yib" firstAttribute="centerX" secondItem="eyT-2m-ddg" secondAttribute="centerX" id="osZ-m6-oQf"/>
+                            <constraint firstItem="XPo-tm-ir1" firstAttribute="centerX" secondItem="eyT-2m-ddg" secondAttribute="centerX" id="qRW-KD-afJ"/>
+                            <constraint firstItem="c12-tI-Xa4" firstAttribute="top" secondItem="pj5-k0-at7" secondAttribute="bottom" constant="10" id="zqB-qc-Qa7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="pj5-k0-at7" id="OLn-7C-sok"/>
+                        <outlet property="mailAddressTextField" destination="XPo-tm-ir1" id="wAf-XH-1SK"/>
+                        <outlet property="passwordTextField" destination="b8E-Xh-Yib" id="zS7-rJ-2FV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXQ-Ni-D7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="63"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="WJK-WC-xRS">
+            <objects>
+                <viewController storyboardIdentifier="Home" id="Khs-hr-aOX" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jRo-hb-OWl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9JY-yw-q0n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="home" id="nJX-kN-JzZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogP-K7-jHS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-512" y="835"/>
+        </scene>
+        <!--投稿-->
+        <scene sceneID="yRo-Nc-UDd">
+            <objects>
+                <viewController storyboardIdentifier="ImageSelect" id="uqh-yf-kG3" customClass="ImageSelectViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l52-ki-xRa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Qia-Wv-upk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="投稿" image="camera" id="Ty2-iJ-btg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxK-fR-u0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="834"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="XZ2-g6-52L">
+            <objects>
+                <viewController storyboardIdentifier="Post" id="DJ2-nF-LZV" customClass="PostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9mg-Th-MQ8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="z6R-1m-Mh6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USe-Uw-HXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="4089.8550724637685" y="40.848214285714285"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="QjO-p4-Pq7">
+            <objects>
+                <viewController storyboardIdentifier="Setting" id="3ic-MN-1Aq" customClass="SettingViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TxO-OU-4kD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CiD-wC-V6o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="x6Z-69-xs3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QS8-J2-RLr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="834"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eKD-ya-13p">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dpb-Wq-HHP" customClass="TabBarController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aIS-eI-Pav">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Khs-hr-aOX" kind="relationship" relationship="viewControllers" id="2mN-Cx-mg6"/>
+                        <segue destination="uqh-yf-kG3" kind="relationship" relationship="viewControllers" id="VhX-lx-spB"/>
+                        <segue destination="3ic-MN-1Aq" kind="relationship" relationship="viewControllers" id="fGV-LO-iK0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rb-Nk-1hi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113.04347826086958" y="62.946428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="300" height="40"/>
+        <image name="camera" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="setting" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
