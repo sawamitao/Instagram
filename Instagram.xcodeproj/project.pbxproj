@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CEE3E12D73D63E1F92553A1 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A3E8C725DCCAE0EC77C6DA /* Pods_Instagram.framework */; };
+		9A254E66262F5D8C004CFDE1 /* ComentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A254E65262F5D8C004CFDE1 /* ComentViewController.swift */; };
 		9AAE4997262C33F6000CBCE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE4996262C33F6000CBCE9 /* AppDelegate.swift */; };
 		9AAE4999262C33F6000CBCE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE4998262C33F6000CBCE9 /* SceneDelegate.swift */; };
 		9AAE499E262C33F6000CBCE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AAE499C262C33F6000CBCE9 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		70A3E8C725DCCAE0EC77C6DA /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A254E65262F5D8C004CFDE1 /* ComentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentViewController.swift; sourceTree = "<group>"; };
 		9AAE4993262C33F6000CBCE9 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AAE4996262C33F6000CBCE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AAE4998262C33F6000CBCE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				9AAE4996262C33F6000CBCE9 /* AppDelegate.swift */,
 				9AAE4998262C33F6000CBCE9 /* SceneDelegate.swift */,
 				9AAE499C262C33F6000CBCE9 /* Main.storyboard */,
+				9A254E65262F5D8C004CFDE1 /* ComentViewController.swift */,
 				9AAE49D2262C3A77000CBCE9 /* TabBarController.swift */,
 				9AAE49C0262C35CC000CBCE9 /* LoginViewController.swift */,
 				9AAE49C3262C35DC000CBCE9 /* HomeViewController.swift */,
@@ -239,6 +242,7 @@
 			files = (
 				9AAE4A31262C58CE000CBCE9 /* PostTableViewCell.swift in Sources */,
 				9AAE49C7262C35ED000CBCE9 /* ImageSelectViewController.swift in Sources */,
+				9A254E66262F5D8C004CFDE1 /* ComentViewController.swift in Sources */,
 				9AAE49D3262C3A77000CBCE9 /* TabBarController.swift in Sources */,
 				9AAE49C4262C35DC000CBCE9 /* HomeViewController.swift in Sources */,
 				9AAE49CA262C35FC000CBCE9 /* PostViewController.swift in Sources */,

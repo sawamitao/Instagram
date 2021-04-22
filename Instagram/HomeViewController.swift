@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -7,13 +8,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // 投稿データを格納する配列
     var postArray: [PostData] = []
+    var addComent:String = ""
+    var addComentName:String = ""
+    
 
     // Firestoreのリスナー
     var listener: ListenerRegistration?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -37,7 +41,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
                 self.postArray = querySnapshot!.documents.map { document in
                     print("DEBUG_PRINT: document取得 \(document.documentID)")
+                    var updateValue: FieldValue
+                    var updateNameValue: FieldValue
                     let postData = PostData(document: document)
+                    print ("追加コメント\(self.addComent)")
+                    if  self.addComent != "" {
+                        self.addComentName = (Auth.auth().currentUser?.displayName)!
+                        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                       
+                        updateNameValue =  FieldValue.arrayUnion([self.addComentName])
+                        updateValue = FieldValue.arrayUnion([self.addComent])
+                        
+                       
+                        print("コメント者\(updateValue)")
+                        
+                        postRef.updateData(["coment_name":updateNameValue])
+                        postRef.updateData(["coment":updateValue])
+                        print(updateNameValue)
+                    }
                     return postData
                 }
                 // TableViewの表示を更新する
@@ -64,19 +85,34 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.comentButton.addTarget(self, action:#selector(comentButton(_:forEvent:)), for: .touchUpInside)
 
         return cell
+    }
+    @objc func comentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        // タップされたセルのインデックスを求める
+       
+        print("DEBUG_PRINT: comentボタンがタップされました。")
+        
+        let comentViewController = self.storyboard?.instantiateViewController(withIdentifier:"coment") as! ComentViewController
+        self.present(comentViewController,animated:true,completion: nil)
+//        comentViewController.postRef = postRef
+        
     }
 
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
         print("DEBUG_PRINT: likeボタンがタップされました。")
+       
+        
+        
 
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
 
@@ -96,4 +132,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postRef.updateData(["likes": updateValue])
         }
     }
+    
+//    // セル内のボタンがタップされた時に呼ばれるメソッド
+//    @objc func comentButton(_ sender: UIButton, forEvent event: UIEvent) {
+//        
+//        print("DEBUG_PRINT: コメントボタンがタップされました")
+//        
+//        
+//    }
+
 }

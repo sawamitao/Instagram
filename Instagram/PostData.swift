@@ -15,6 +15,9 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
+    var coment: [String] = []
+    var coment_name: [String] = []
+    var isComented: Bool = false
 
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID
@@ -22,7 +25,6 @@ class PostData: NSObject {
         let postDic = document.data()
 
         self.name = postDic["name"] as? String
-
         self.caption = postDic["caption"] as? String
 
         let timestamp = postDic["date"] as? Timestamp
@@ -31,6 +33,14 @@ class PostData: NSObject {
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
         }
+        if let coment_name = postDic["coment_name"] as? [String] {
+            self.coment_name = coment_name
+        }
+        if let coment = postDic["coment"] as? [String] {
+            self.coment = coment
+        }
+
+        
         if let myid = Auth.auth().currentUser?.uid {
             // likesの配列の中にmyidが含まれているかチェックすることで、自分がいいねを押しているかを判断
             if self.likes.firstIndex(of: myid) != nil {
@@ -38,5 +48,6 @@ class PostData: NSObject {
                 self.isLiked = true
             }
         }
+
     }
 }
