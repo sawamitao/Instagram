@@ -40,25 +40,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
                 // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
                 self.postArray = querySnapshot!.documents.map { document in
-                    print("DEBUG_PRINT: document取得 \(document.documentID)")
-                    var updateValue: FieldValue
-                    var updateNameValue: FieldValue
+//                    var updateValue: FieldValue
+//                    var updateNameValue: FieldValue
                     let postData = PostData(document: document)
-                    print ("追加コメント\(self.addComent)")
-                    if  self.addComent != "" {
-                        self.addComentName = (Auth.auth().currentUser?.displayName)!
-                        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-                       
-                        updateNameValue =  FieldValue.arrayUnion([self.addComentName])
-                        updateValue = FieldValue.arrayUnion([self.addComent])
-                        
-                       
-                        print("コメント者\(updateValue)")
-                        
-                        postRef.updateData(["coment_name":updateNameValue])
-                        postRef.updateData(["coment":updateValue])
-                        print(updateNameValue)
-                    }
                     return postData
                 }
                 // TableViewの表示を更新する
@@ -98,17 +82,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let comentViewController = self.storyboard?.instantiateViewController(withIdentifier:"coment") as! ComentViewController
         self.present(comentViewController,animated:true,completion: nil)
 //        comentViewController.postRef = postRef
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        let postData = postArray[indexPath!.row]
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        comentViewController.content_id = postData.id
         
     }
 
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         
-        print("DEBUG_PRINT: likeボタンがタップされました。")
-       
-        
-        
-
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
@@ -133,12 +118,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-//    // セル内のボタンがタップされた時に呼ばれるメソッド
-//    @objc func comentButton(_ sender: UIButton, forEvent event: UIEvent) {
-//        
-//        print("DEBUG_PRINT: コメントボタンがタップされました")
-//        
-//        
-//    }
 
 }
+

@@ -6,6 +6,7 @@
 //
 import UIKit
 import FirebaseUI
+import Firebase
 
 class PostTableViewCell: UITableViewCell {
  
@@ -38,8 +39,9 @@ class PostTableViewCell: UITableViewCell {
         let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
         postImageView.sd_setImage(with: imageRef)
 
-        // キャプションの表示
+//        // キャプションの表示
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+
 
         // 日時の表示
         self.dateLabel.text = ""
@@ -62,20 +64,31 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-        //comentの表示
-        let coment_count = postData.coment_name.count
-        var coment_text:String = ""
-        var i = 0
-        
-        while i < coment_count{
-            coment_text = coment_text + "\(postData.coment[i])"+"\(postData.coment_name[i])"+"\r\n"
-            i = i+1
+        //コメントの表示
+        var comment_set = [""]
+        Firestore.firestore().collection(Const.PostPath).document(postData.id).collection("comment").getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+                for document in querySnapshot.documents {
+                    let comment = document.get("comment") as! String
+                    let name = document.get("name") as! String
+                    comment_set .append(comment+""+name)
+                
+                }
+            var i = 0
+            var coment_text:String = ""
+            while i < comment_set.count{
+                coment_text = coment_text + "\(comment_set[i])"+"\r\n"
+                i = i+1
+            self.comentLabel.text = coment_text
+                    
+                    
+            
+                }
+                
+            }
         }
-        print("コメントテキスト\(coment_text)")
-        comentLabel.text = coment_text
         
 
-        
         
 
     }
@@ -83,3 +96,4 @@ class PostTableViewCell: UITableViewCell {
     
     
 }
+
