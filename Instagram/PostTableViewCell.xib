@@ -51,20 +51,24 @@
                         <state key="normal" image="message" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxe-5Z-gZM">
-                        <rect key="frame" x="0.0" y="498" width="318" height="228"/>
+                        <rect key="frame" x="0.0" y="378" width="318" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zsr-5A-bdt">
-                        <rect key="frame" x="16" y="378" width="286" height="120"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" id="zsr-5A-bdt">
+                        <rect key="frame" x="0.0" y="399" width="318" height="327"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" staticText="YES"/>
+                        </accessibility>
                         <constraints>
-                            <constraint firstAttribute="height" constant="120" id="FlB-tA-cfo"/>
+                            <constraint firstAttribute="width" constant="318" id="SzL-Am-hvr"/>
                         </constraints>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="1Nx-KX-4g1"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="AkL-md-9ke"/>
+                        <attributedString key="attributedText"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
@@ -72,23 +76,23 @@
                     <constraint firstItem="AOV-wW-f3G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1Pu-ux-wRU"/>
                     <constraint firstItem="zGg-zV-ysY" firstAttribute="leading" secondItem="Tbh-WB-m29" secondAttribute="trailing" constant="10" id="7Sd-zh-Vy7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="6sB-yy-h1H" secondAttribute="trailing" constant="10" id="7i0-JY-Y8J"/>
-                    <constraint firstAttribute="trailing" secondItem="Zxe-5Z-gZM" secondAttribute="trailing" id="A8o-XU-2tu"/>
+                    <constraint firstItem="zsr-5A-bdt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B8c-ZK-Kso"/>
+                    <constraint firstAttribute="bottom" secondItem="zsr-5A-bdt" secondAttribute="bottom" id="BDu-o1-PoU"/>
                     <constraint firstItem="6sB-yy-h1H" firstAttribute="centerY" secondItem="6km-ZE-tsm" secondAttribute="centerY" id="Fhe-EC-IZa"/>
                     <constraint firstItem="Tbh-WB-m29" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="GUg-YV-Lqy"/>
-                    <constraint firstItem="Zxe-5Z-gZM" firstAttribute="top" secondItem="zsr-5A-bdt" secondAttribute="bottom" id="GhG-gg-Me4"/>
-                    <constraint firstAttribute="bottom" secondItem="Zxe-5Z-gZM" secondAttribute="bottom" id="HY2-IB-28M"/>
                     <constraint firstItem="zGg-zV-ysY" firstAttribute="centerY" secondItem="Tbh-WB-m29" secondAttribute="centerY" id="I7R-QH-c6k"/>
+                    <constraint firstAttribute="trailing" secondItem="zsr-5A-bdt" secondAttribute="trailing" id="NFQ-Lk-zt9"/>
                     <constraint firstItem="6km-ZE-tsm" firstAttribute="leading" secondItem="zGg-zV-ysY" secondAttribute="trailing" constant="10" id="a7P-kE-rUR"/>
+                    <constraint firstAttribute="trailing" secondItem="Zxe-5Z-gZM" secondAttribute="trailing" id="cok-UZ-gUA"/>
                     <constraint firstItem="6sB-yy-h1H" firstAttribute="centerY" secondItem="Tbh-WB-m29" secondAttribute="centerY" id="cto-4R-gEz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zsr-5A-bdt" secondAttribute="trailing" id="d2e-eT-h4x"/>
-                    <constraint firstItem="zsr-5A-bdt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dBd-c3-Tcj"/>
                     <constraint firstItem="6sB-yy-h1H" firstAttribute="leading" secondItem="6km-ZE-tsm" secondAttribute="trailing" constant="10" id="e04-ft-6uR"/>
                     <constraint firstItem="zGg-zV-ysY" firstAttribute="centerY" secondItem="Tbh-WB-m29" secondAttribute="centerY" id="imJ-SC-sza"/>
-                    <constraint firstItem="zsr-5A-bdt" firstAttribute="top" secondItem="Tbh-WB-m29" secondAttribute="bottom" id="lX3-gu-bre"/>
+                    <constraint firstItem="Zxe-5Z-gZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="isZ-Kj-CkY"/>
                     <constraint firstItem="Tbh-WB-m29" firstAttribute="top" secondItem="AOV-wW-f3G" secondAttribute="bottom" constant="10" id="lkG-ht-cOY"/>
-                    <constraint firstItem="Zxe-5Z-gZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mTC-AF-Srz"/>
                     <constraint firstAttribute="trailing" secondItem="AOV-wW-f3G" secondAttribute="trailing" id="pFz-UB-33W"/>
+                    <constraint firstItem="Zxe-5Z-gZM" firstAttribute="top" secondItem="Tbh-WB-m29" secondAttribute="bottom" id="qr5-kC-aDa"/>
                     <constraint firstItem="AOV-wW-f3G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tnV-Ju-KqI"/>
+                    <constraint firstItem="zsr-5A-bdt" firstAttribute="top" secondItem="Zxe-5Z-gZM" secondAttribute="bottom" id="vtQ-Bv-teg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -107,9 +111,6 @@
     <resources>
         <image name="like_none" width="40" height="40"/>
         <image name="message" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

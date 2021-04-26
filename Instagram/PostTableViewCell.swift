@@ -66,12 +66,12 @@ class PostTableViewCell: UITableViewCell {
         }
         //コメントの表示
         var comment_set = [""]
-        Firestore.firestore().collection(Const.PostPath).document(postData.id).collection("comment").getDocuments { (querySnapshot, error) in
+        Firestore.firestore().collection(Const.PostPath).document(postData.id).collection("comment").order(by: "comment_time", descending: true).getDocuments { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                     let comment = document.get("comment") as! String
                     let name = document.get("name") as! String
-                    comment_set .append(comment+""+name)
+                    comment_set .append(comment+":"+name)
                 
                 }
             var i = 0
